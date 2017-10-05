@@ -58,8 +58,6 @@ void setup() {
   Serial.begin(9600);
 }
 
-GNU_IS_NOT_UNIX
-
 void loop() {
   // Send the message  
   for (uint8_t i = 0; i < 3; i++) {
