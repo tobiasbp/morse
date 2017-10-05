@@ -60,7 +60,7 @@ void setup() {
 
 void loop() {
   // Send the message  
-  for (uint8_t i = 0; i < 3; i++) {
+  for (uint8_t i = 0; i < sizeof(message); i++) {
     morse(message[i]);
   }
   // Char delimiter time in morse function, so allready sent.
