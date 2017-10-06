@@ -71,7 +71,7 @@ void loop() {
 
 
 // Takes an ASCII code. Sends as morse code
-// Only sends A-Z
+// Only sends the characters A-Z & a-z
 void morse(int8_t char_to_send) {
   
   // Convert lower case to upper case
