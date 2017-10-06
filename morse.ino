@@ -56,11 +56,14 @@ void setup() {
   // put your setup code here, to run once:
   pinMode(MORSE_LED, OUTPUT);
   
+  // Enable serial communication
   Serial.begin(9600);
 }
 
 void loop() {
-  // Send the message  
+  // Loop through the characters in the message array
+  // Note: sizeof returns number of bytes, thus it works
+  // here because message uses type uint8_t (Size is 1 byte)
   for (uint8_t i = 0; i < sizeof(message); i++) {
     morse(message[i]);
   }
@@ -72,6 +75,7 @@ void loop() {
 
 // Takes an ASCII code. Sends as morse code
 // Only sends the characters A-Z & a-z
+// FIXME: We need to accept a 'space' (ASCII 32)
 void morse(int8_t char_to_send) {
   
   // Convert lower case to upper case
