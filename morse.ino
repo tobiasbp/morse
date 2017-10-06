@@ -1,4 +1,5 @@
-#define MORSE_LED 13
+// The morse code will be transmitted on this pin
+#define MORSE_PIN 13
 
 // Length of events in morse code in milliseconds
 // Base unit is dot
@@ -63,7 +64,8 @@ void loop() {
   for (uint8_t i = 0; i < sizeof(message); i++) {
     morse(message[i]);
   }
-  // Char delimiter time in morse function, so allready sent.
+  // Pause between words
+  // Char delimiter time allready sent in morse function, so subtract it from word pause.
   delay(time_word_delimiter - time_char_delimiter);
 }
 
@@ -109,15 +111,15 @@ void morse(int8_t char_to_send) {
       }
     } // End data loop
     
-    // Pause between characters. dash/dot pause already sent, so subtract
+    // Pause between characters. dash/dot pause already sent, so subtract one
     delay(time_char_delimiter - time_dash_dot_delimiter);
   }
 }
 
-// Turn on led for a period of flash_time ms
+// Turn on morse pin for a period of flash_time milli seconds
 void flash(int flash_time) {
-  digitalWrite(MORSE_LED, HIGH);
+  digitalWrite(MORSE_PIN, HIGH);
   delay(flash_time);
-  digitalWrite(MORSE_LED, LOW);
+  digitalWrite(MORSE_PIN, LOW);
 }
 
